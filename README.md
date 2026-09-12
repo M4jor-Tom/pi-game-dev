@@ -22,7 +22,8 @@ nix run github:M4jor-Tom/pi-game-dev.app
 ```
 
 `PI_CODING_AGENT_DIR` replaces pi's `agent` subdirectory, so this repo's
-`settings.json` is what `~/.pi/agent/settings.json` would normally be.
+`settings.json` is what `~/.pi/agent/settings.json` would normally be. Unlike
+`pi-power-dev`, this profile pins `defaultModel` to `claude-fable-5-1[1m]`.
 
 ## Layout
 
@@ -34,9 +35,9 @@ nix run github:M4jor-Tom/pi-game-dev.app
 | `skills/` | Locally authored skills |
 | `prompts/` | Slash commands |
 | `extensions/` | TypeScript extensions (pi's replacement for hooks) |
-| `agents/` | Subagent definitions, read by `pi-subagents` |
 | `tests/` | `node --test` unit tests for the extensions |
 | `scripts/check.sh` | Integrity check, also run in CI |
+| `docs/adr/` | Architecture decision records |
 
 Auth, sessions and memory are per-profile: because `PI_CODING_AGENT_DIR`
 points here, `auth.json`, `sessions/` and `pi-hermes-memory/` all land in
