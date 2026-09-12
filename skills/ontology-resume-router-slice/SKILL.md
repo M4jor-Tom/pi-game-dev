@@ -26,12 +26,12 @@ not already mandate, or a slice so unspecified that every path is a guess.
 digraph when {
     "Repo has ontology/ (domain.md + instances + model)?" [shape=diamond];
     "Request = resume / next slice / follow HANDOFF?" [shape=diamond];
-    "onthology-resume-router-slice" [shape=box];
+    "ontology-resume-router-slice" [shape=box];
     "game-from-ontology (build the ontology first)" [shape=box];
     "router (single task, no slice loop)" [shape=box];
     "Repo has ontology/ (domain.md + instances + model)?" -> "Request = resume / next slice / follow HANDOFF?" [label="yes"];
     "Repo has ontology/ (domain.md + instances + model)?" -> "game-from-ontology (build the ontology first)" [label="no"];
-    "Request = resume / next slice / follow HANDOFF?" -> "onthology-resume-router-slice" [label="yes"];
+    "Request = resume / next slice / follow HANDOFF?" -> "ontology-resume-router-slice" [label="yes"];
     "Request = resume / next slice / follow HANDOFF?" -> "router (single task, no slice loop)" [label="no - one bug / one feature"];
 }
 ```

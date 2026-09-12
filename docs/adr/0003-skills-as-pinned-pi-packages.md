@@ -41,6 +41,12 @@ never handled cleanly.
 - `check.sh` can no longer count vendored skills: after pi installs them they
   live under the gitignored `git/` tree. It now checks the authored skills
   and asserts every package source is pinned.
+- Recursion is not sufficient on its own. `awesome-gamedev-agent-skills` keeps
+  its `router` at the repository root, outside the `skills/` directory that
+  convention discovery scans, so `settings.json` names both paths explicitly:
+  `"skills": ["skills", "router"]`. Dropping that filter when bumping the pin
+  would silently load the 67 engine skills without the dispatcher they are
+  routed through.
 - Dependabot's `gitsubmodule` ecosystem no longer applies. Bumping an upstream
   means editing a ref in `settings.json`, which is a reviewable one-line diff
   rather than an opaque gitlink change.

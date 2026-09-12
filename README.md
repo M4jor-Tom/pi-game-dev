@@ -41,7 +41,7 @@ nix run github:M4jor-Tom/pi-game-dev.app
 Auth, sessions and memory are per-profile: because `PI_CODING_AGENT_DIR`
 points here, `auth.json`, `sessions/` and `pi-hermes-memory/` all land in
 this directory and are gitignored. Nothing is shared with `~/.pi` or with
-`pi-game-dev`.
+`pi-power-dev`.
 
 ## Updating pinned packages
 
