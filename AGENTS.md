@@ -1,90 +1,83 @@
-# Profil pi : power-dev
+# Pi profile: game-dev
 
 ## Git
 
-Format des commits : `<type>[(scope)][!]: <description>`, corps et footers
-séparés par une ligne vide.
+Commit format: `<type>[(scope)][!]: <description>`, with the body and footers
+separated by a blank line.
 
-Types : `feat` (MINOR) · `fix` (PATCH) · `refactor` · `test` · `docs` · `ci` ·
+Types: `feat` (MINOR) · `fix` (PATCH) · `refactor` · `test` · `docs` · `ci` ·
 `chore` · `perf` · `build`.
-Breaking change : `!` après le type/scope **ou** footer `BREAKING CHANGE:`
-(MAJOR, sensible à la casse).
-Référence : https://www.conventionalcommits.org/en/v1.0.0/
+Breaking change: `!` after the type/scope **or** a `BREAKING CHANGE:` footer
+(MAJOR, case-sensitive).
+Reference: https://www.conventionalcommits.org/en/v1.0.0/
 
-Gitflow : branches `feature/*`, `fix/*`, `release/*` depuis `develop`, merge
-vers `main` à la release. Ne **jamais** merge en fast-forward, toujours
-`--no-ff`.
+Gitflow: branches `feature/*`, `fix/*`, and `release/*` from `develop`, merged
+into `main` for releases. **Never** fast-forward merge; always use `--no-ff`.
 
 ## RTK — Rust Token Killer
 
-Proxy CLI optimisé tokens (60-90 % d'économie sur les opérations de dev).
+Token-optimized CLI proxy (60–90% savings on development operations).
 
-Méta-commandes, à taper telles quelles :
+Meta-commands, to be entered exactly as shown:
 
 ```bash
-rtk gain              # Analytics des économies de tokens
-rtk gain --history    # Historique des commandes avec économies
-rtk discover          # Repère les opportunités manquées
-rtk proxy <cmd>       # Exécute une commande brute sans filtrage (debug)
+rtk gain              # Token savings analytics
+rtk gain --history    # Command history with savings
+rtk discover          # Identify missed opportunities
+rtk proxy <cmd>       # Run an unfiltered raw command (debugging)
 ```
 
-Toutes les autres commandes sont réécrites automatiquement par
-`extensions/rtk.ts` : `git status` devient `rtk git status` avant exécution.
-Aucun préfixe à taper à la main. `rtk hook check "<cmd>"` montre la
-réécriture sans l'appliquer.
+All other commands are automatically rewritten by `extensions/rtk.ts`:
+`git status` becomes `rtk git status` before execution. No prefix needs to be
+entered manually. `rtk hook check "<cmd>"` shows the rewrite without applying
+it.
 
-⚠ Collision de nom : si `rtk gain` échoue, c'est probablement
-reachingforthejack/rtk (Rust Type Kit) qui est installé à la place.
+⚠ Name collision: if `rtk gain` fails, reachingforthejack/rtk (Rust Type Kit)
+is probably installed instead.
 
-## Commandes Bash
+## Bash commands
 
-Préférer ces outils aux équivalents par défaut. Fallback silencieux si absent.
+Prefer these tools over their default equivalents. Fall back silently if they
+are unavailable.
 
-- **Recherche de contenu** : `rg` plutôt que `grep`
-- **Recherche de fichiers** : `fd` plutôt que `find`
-- **JSON** : `jq` pour tout parsing, filtrage ou transformation
-- **YAML/TOML** : `yq`
-- **GitHub** : `gh` pour PRs, issues, reviews, CI, releases. Ne pas scraper
-  github.com ni taper l'API REST quand `gh` suffit.
-- **GitLab** : `glab` pour MRs, issues, reviews, CI, releases. Idem.
+- **Content search**: `rg` rather than `grep`
+- **File search**: `fd` rather than `find`
+- **JSON**: `jq` for all parsing, filtering, or transformations
+- **YAML/TOML**: `yq`
+- **GitHub**: `gh` for PRs, issues, reviews, CI, and releases. Do not scrape
+  github.com or use the REST API when `gh` is sufficient.
+- **GitLab**: `glab` for MRs, issues, reviews, CI, and releases. Same rule.
 
-## Workflow agents
+## Agent workflow
 
-- **Invoquer `/skill:using-superpowers` en début de session** pour toute
-  demande de développement, fonctionnalité ou implémentation ; pas pour une
-  question simple.
-- Pour toute tâche non triviale (3+ étapes ou décision d'architecture),
-  commencer par `/skill:brainstorming`. pi n'a pas de plan mode : la
-  discipline vient du skill, pas du harness.
-- **Vérifier dans le navigateur** (`/skill:playwright-cli`) sur **toute** US
-  à incidence UI.
-- Toujours terminer une tâche de code par `/simplify`, puis
-  `/skill:ponytail-review`, puis appliquer les ajustements.
+- **Verify in the browser** (`/skill:playwright-cli`) for **every** user story
+  with UI impact, if UI is in browser.
+- Always finish a coding task with `/simplify`, then
+  `/skill:ponytail-review`, then apply the adjustments.
 
 ## Orchestration
 
-- Si ça dérape, STOP et re-planifier immédiatement — ne pas s'acharner.
-- Écrire des specs détaillées en amont pour réduire l'ambiguïté.
-- Utiliser l'outil `subagent` librement pour garder le contexte principal
-  propre : déléguer recherche, exploration et analyse parallèle. Les agents
-  disponibles sont ceux fournis par `pi-subagents`.
-- Après TOUTE correction de l'utilisateur : noter le pattern dans
-  `tasks/lessons.md` et écrire une règle pour soi-même.
-- Ne jamais marquer une tâche comme terminée sans prouver qu'elle fonctionne :
-  lancer les tests, vérifier les logs, démontrer la correction.
-- Pour les changements non triviaux : se demander « existe-t-il une façon plus
-  élégante ? ». Sauter cette étape pour les fixes simples et évidents.
+- If things go off track, STOP and re-plan immediately—do not persist blindly.
+- Write detailed specs upfront to reduce ambiguity.
+- Use the `subagent` tool freely to keep the main context clean: delegate
+  research, exploration, and parallel analysis. The available agents are those
+  provided by `pi-subagents`.
+- After EVERY user correction, record the pattern in `tasks/lessons.md` and
+  write a rule for yourself.
+- Never mark a task as complete without proving that it works: run the tests,
+  check the logs, and demonstrate the fix.
+- For non-trivial changes, ask: “Is there a more elegant way?” Skip this step
+  for simple, obvious fixes.
 
-## Principes
+## Principles
 
-- **Simplicité d'abord** : rendre chaque changement aussi simple que possible.
-- **Pas de paresse** : trouver les causes racines. Pas de fix temporaire.
-- **Impact minimal** : ne toucher que le nécessaire.
+- **Simplicity first**: make every change as simple as possible.
+- **No laziness**: find root causes. No temporary fixes.
+- **Minimal impact**: change only what is necessary.
 
-## Langue
+## Language
 
-Répondre en anglais. Termes techniques et identifiants de code restent tels
-quels.
+Respond in English. Keep technical terms and code identifiers unchanged.
 
 ## Ontology-first game development
 
