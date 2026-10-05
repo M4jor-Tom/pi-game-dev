@@ -1,4 +1,4 @@
-# pi profile: power-dev
+# Pi profile: game-dev
 
 ## Git
 
@@ -50,13 +50,8 @@ Prefer these tools over the defaults. Fall back silently if unavailable.
 
 ## Agent workflow
 
-- **Invoke `/skill:using-superpowers` at the start of the session** for any
-  development, feature or implementation request; not for a simple question.
-- For any nontrivial task (3+ steps or an architectural decision), start with
-  `/skill:brainstorming`. pi has no plan mode: discipline comes from the
-  skill, not the harness.
 - **Verify in the browser** (`/skill:playwright-cli`) for **every** user story
-  that affects the UI.
+  with UI impact, if UI is in browser.
 - Always finish a coding task with `/simplify`, then
   `/skill:ponytail-review`, then apply the adjustments.
 
@@ -79,3 +74,22 @@ Prefer these tools over the defaults. Fall back silently if unavailable.
 - **Simplicity first**: make every change as simple as possible.
 - **No laziness**: find the root causes. No temporary fixes.
 - **Minimal impact**: only touch what is necessary.
+
+## Ontology-first game development
+
+This profile develops game repositories ontology-first.
+
+- Every gameplay feature starts with `/skill:game-from-ontology`, which
+  chains the `ontology` and `router` skills.
+- `ontology/` at the repo root is the source of truth. Development never
+  drifts ahead of it.
+- **Sync rule (step 0):** land the change in `ontology/` before implementing
+  any domain-touching task. Skip only for debugging, build or tooling work.
+- Always route gamedev implementation through the `router` skill. Never
+  hand-pick engine or genre skills yourself.
+- **Exemption:** `prototype-fast` spikes and `game-jam` builds are
+  pre-ontology, timeboxed, on a separate branch or repo, and never merged. A
+  spike that proves fun feeds the ontology; its code is deleted.
+- To resume work on an existing ontology-first repo, use
+  `/skill:ontology-resume-router-slice`. It expects the `subagent` tool for
+  its per-phase model routing.

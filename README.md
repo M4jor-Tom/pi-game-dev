@@ -1,21 +1,24 @@
-# pi-power-dev
+# pi-game-dev
 
-A [pi](https://pi.dev) agent directory: general-purpose coding profile,
-ported from `M4jor-Tom/claude-power-dev`.
+A [pi](https://pi.dev) agent directory: everything in `pi-power-dev`, plus
+ontology-first game development. Ported from `M4jor-Tom/claude-game-dev`.
+
+The 69 symlinks and two `vendor/` submodules the Claude profile carried are
+gone — see `docs/adr/0003-skills-as-pinned-pi-packages.md`.
 
 ## Use it
 
 Without Nix — this repo *is* the agent dir:
 
 ```bash
-git clone https://github.com/M4jor-Tom/pi-power-dev.git ~/.pi-power-dev
-PI_CODING_AGENT_DIR=~/.pi-power-dev pi
+git clone https://github.com/M4jor-Tom/pi-game-dev.git ~/.pi-game-dev
+PI_CODING_AGENT_DIR=~/.pi-game-dev pi
 ```
 
 With Nix, which also supplies every CLI the skills shell out to:
 
 ```bash
-nix run github:M4jor-Tom/pi-power-dev.app
+nix run github:M4jor-Tom/pi-game-dev.app
 ```
 
 `PI_CODING_AGENT_DIR` replaces pi's `agent` subdirectory, so this repo's
@@ -37,7 +40,7 @@ nix run github:M4jor-Tom/pi-power-dev.app
 Auth, sessions and memory are per-profile: because `PI_CODING_AGENT_DIR`
 points here, `auth.json`, `sessions/` and `pi-hermes-memory/` all land in
 this directory and are gitignored. Nothing is shared with `~/.pi` or with
-`pi-game-dev`.
+`pi-power-dev`.
 
 ## Updating pinned packages
 
