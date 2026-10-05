@@ -38,8 +38,14 @@ for s in skills/*/; do
   fi
   skills=$((skills + 1))
 done
-if [ "$skills" -lt 7 ]; then err "expected >= 7 skills, found $skills"; fi
+if [ "$skills" -lt 9 ]; then err "expected >= 9 skills, found $skills"; fi
 if [ ! -f skills/context7/SKILL.md ]; then err "missing skills/context7/SKILL.md"; fi
+if [ ! -f skills/game-from-ontology/SKILL.md ]; then
+  err "missing skills/game-from-ontology/SKILL.md"
+fi
+if [ ! -f skills/ontology-resume-router-slice/SKILL.md ]; then
+  err "missing skills/ontology-resume-router-slice/SKILL.md"
+fi
 
 # Prompt templates are pi's slash commands. Discovery is non-recursive, so a
 # template in a subdirectory silently does nothing.

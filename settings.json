@@ -21,12 +21,15 @@
     },
     {
       "source": "git:github.com/nextlevelbuilder/ui-ux-pro-max-skill@1307d97a72e6c1cda572cb65471ae5ce82995218",
-      "skills": [
-        ".claude/skills"
-      ],
+      "skills": [".claude/skills"],
       "extensions": [],
       "prompts": [],
       "themes": []
-    }
+    },
+    {
+      "source": "git:github.com/gamedev-skills/awesome-gamedev-agent-skills@9ca5296b219049c5b68494e1f3c274ead6d727b3",
+      "skills": ["skills", "router"]
+    },
+    "git:github.com/M4jor-Tom/claude-ontology-skill@13bfe0ce8c46fbd3d77e9faf94ebeb6ba4f5bab3"
   ]
 }
