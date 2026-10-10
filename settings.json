@@ -8,6 +8,7 @@
     "npm:pi-hermes-memory@0.9.8",
     "npm:pi-mcp-adapter@2.33.0",
     "npm:pi-subagents@0.67.0",
+    "npm:pi-rewind@0.5.0",
     {
       "source": "git:github.com/anthropics/claude-plugins-official@ed404106fcd80ba98ecb7c851e531dcb626d13b7",
       "skills": [
