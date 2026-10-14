@@ -64,6 +64,7 @@ Prefer these tools over the defaults. Fall back silently if unavailable.
 - After user corrections: record the pattern in `docs/lessons.md` and
   write a rule for yourself. Only store there information which does not fit in
   project's existing documentation, or project memory's skills.
+  Do not store data which could fit in the project's ontology.
 - Never mark a task as complete without proving it works: run the tests,
   check the logs, demonstrate the fix.
 - For nontrivial changes, ask yourself "Is there a more elegant way?".
