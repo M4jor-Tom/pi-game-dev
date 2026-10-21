@@ -2,6 +2,9 @@
   "defaultThinkingLevel": "xhigh",
   "defaultProjectTrust": "ask",
   "enableSkillCommands": true,
+  "skills": [
+    "git/github.com/gamedev-skills/awesome-gamedev-agent-skills/router"
+  ],
   "packages": [
     "git:github.com/obra/superpowers@22f0b463e7a5e579904dd6211a520321035526f7",
     "git:github.com/DietrichGebert/ponytail@96608e078b2d5ea607c5c3b8b5a54d1c1fba6846",
@@ -28,7 +31,9 @@
       "extensions": [],
       "prompts": [],
       "themes": []
-    }
+    },
+    "git:github.com/gamedev-skills/awesome-gamedev-agent-skills@9ca5296b219049c5b68494e1f3c274ead6d727b3",
+    "git:github.com/M4jor-Tom/claude-ontology-skill@13bfe0ce8c46fbd3d77e9faf94ebeb6ba4f5bab3"
   ],
   "lastChangelogVersion": "0.85.1",
   "theme": "dark"
