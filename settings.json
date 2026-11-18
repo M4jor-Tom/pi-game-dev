@@ -32,8 +32,8 @@
       "prompts": [],
       "themes": []
     },
-    "git:github.com/gamedev-skills/awesome-gamedev-agent-skills@9ca5296b219049c5b68494e1f3c274ead6d727b3",
-    "git:github.com/M4jor-Tom/claude-ontology-skill@13bfe0ce8c46fbd3d77e9faf94ebeb6ba4f5bab3"
+    "git:github.com/gamedev-skills/awesome-gamedev-agent-skills@c6ca6c41c839b68319ffc08430b99ab768debc32",
+    "git:github.com/M4jor-Tom/claude-ontology-skill@83580144b48276d69b71a69a70a77ece0448e939"
   ],
   "lastChangelogVersion": "0.85.1",
   "theme": "dark"
